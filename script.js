@@ -28,7 +28,7 @@ let currentMessageIndex = 0;
 
 function hidePopup() {
     popup.style.display = 'none';
-    setTimeout(showPopup, 30000);
+    setTimeout(showPopup, 5000);
 };
 
 setTimeout(showPopup, 3000);
@@ -39,35 +39,55 @@ setTimeout(showPopup, 3000);
 
 // About Section Counter
 document.addEventListener("DOMContentLoaded", function () {
-    let valueDisplays = document.querySelectorAll(".num");
-    let interval = 4000;
-    valueDisplays.forEach((valueDisplay) => {
-        let startValue = 0;
-        let endValue = parseInt(valueDisplay.getAttribute("data-val"));
-        let duration = Math.floor(interval / endValue);
-        let counter = setInterval(function () {
-            startValue += 1;
-            valueDisplay.textContent = startValue;
-            if (startValue == endValue) {
-            clearInterval(counter);
-        }
-        }, duration);
-    });
-    });
+  let valueDisplays = document.querySelectorAll(".num");
+  let interval = 1000;
+  valueDisplays.forEach((valueDisplay) => {
+      let startValue = 0;
+      let endValue = parseInt(valueDisplay.getAttribute("data-val"));
+      let duration = Math.floor(interval / endValue);
+      let counter = setInterval(function () {
+          startValue += 1;
+          valueDisplay.textContent = startValue;
+          if (startValue == endValue) {
+          clearInterval(counter);
+      }
+      }, duration);
+  });
+  });
 // About Section Counter
 
-const register = document.getElementById('Register');
+const register_form = document.getElementById('Register');
 const login_form = document.getElementById('login');
 const signup_form = document.getElementById('signup');
+const login_btn = document.getElementById('login-btn');
+const logout_btn = document.getElementById('logout-btn');
+const register_btn = document.getElementById('register-btn');
+
+function register(){
+  register_form.style.display = 'block';
+  login_form.style.display = 'none';
+  signup_form.style.display = 'none';
+  login_btn.style.display = 'block';
+  register_btn.style.display = 'none';
+}
 
 function login(){
-  register.style.display = 'none';
+  register_form.style.display = 'none';
   login_form.style.display = 'block';
   signup_form.style.display = 'none';
+  login_btn.style.display = 'none';
+  register_btn.style.display = 'block';
 }
 
 function signup(){
-  register.style.display = 'none';
+  register_form.style.display = 'none';
   login_form.style.display = 'none';
   signup_form.style.display = 'block';
 }
+
+
+function Logout() {
+  localStorage.removeItem('token')
+  window.location.reload()
+}
+

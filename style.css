@@ -43,32 +43,120 @@ section {
 
 /* Navbar */
 
+#nav-main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 
 nav{
   position: fixed;
-  top: 0;
+  top: 90vh;
   z-index: 999999;
-  justify-content: space-around;
   align-items: center;
+  text-align: center;
 }
 
-#nav {
+#nav{
+  position: fixed;
   display: flex;
-  width: 100%;
-  background-color: #6d6fffe8;
-  height: 90px;
-  border-radius: 0px 0px 100px 100px
+  width: 28%;
+  background-color: white;
+  height: 70px;
+  border-radius: 100px;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+              rgba(0, 0, 0, 0.12) 0px -12px 30px,
+              rgba(0, 0, 0, 0.12) 0px 4px 6px,
+              rgba(0, 0, 0, 0.17) 0px 12px 13px,
+              rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  transition: all 0.5s;
+}
+
+#nav-down{
+  position: fixed;
+  display: flex;
+  width: 28%;
+  background-color: white;
+  height: 70px;
+  border-radius: 100px;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+              rgba(0, 0, 0, 0.12) 0px -12px 30px,
+              rgba(0, 0, 0, 0.12) 0px 4px 6px,
+              rgba(0, 0, 0, 0.17) 0px 12px 13px,
+              rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  transition: all 0.5s;
+  top: 90%;
+}
+
+#nav .nav-down-1{
+  background-color: black;
+  position: relative;
+  width: 28%;
+}
+
+#nav .nav-down-2{
+  background-color: black;
+  position: relative;
+  width: 28%;
+
+}
+
+#nav:hover{
+  box-shadow: 0 0 0 3px black;
+  background-color: #6d6fff;
+  transition: all 0.3s;
+  transform: translateY(-16px);
+}
+
+#nav:hover ~ #nav-down.nav-down-1{
+  width: 27%;
+  background-color: #9463CF;
+  box-shadow: 0 0 0 3px black;
+  transition: all 0.3s;
+  transform: translateY(-8px);
+  left: 36.58%;
+}
+
+#nav:hover ~ #nav-down.nav-down-2{
+  width: 26%;
+  background-color: #F2DFD7;
+  box-shadow: 0 0 0 3px black;
+  transition: all 0.3s;
+  left: 37.16%;
+}
+
+#nav:hover i{
+  color: white;
+  transform: rotate(360deg);
+}
+
+#nav button{
+  background-color: transparent;
+  border: none;
+  font-size: 25px;
 }
 
 #nav i{
-  display: none;
+  display: grid;
+  color: #1acc4f;
+  transition: all 0.5s;
 }
 
 .menu-tabs {
   display: flex;
+  position: relative;
   gap: 30px;
   list-style: none;
-  font-size: 24px;
+  font-size: 17px;
 }
 
 a {
@@ -80,9 +168,13 @@ a {
   transition: all 0.5s;
 }
 
-#nav li:hover , #nav a:hover{
+#nav li:hover{
+  transform: scale(1.3);
+}
+
+#nav li:hover span{
   text-decoration: underline;
-  text-underline-offset: 16px;
+  text-underline-offset: 10px;
   text-decoration-color: #1ACC8D;
   transform: scale(1.2);
 }
@@ -102,20 +194,77 @@ a {
 
 /* Hero Section */
 
+#top{
+  display: flex;
+  position: fixed;
+  width: 100%;
+  background-color: #6d6fff;
+  align-items: center;
+}
+
+#top img{
+  width: auto;
+  height: 5vh;
+  padding: 10px 0px 10px 0px;
+}
+
+#top #top-rotate{
+  animation: imagerotate 5s infinite;
+  padding: 10px 0px 10px 30px
+}
+
+@keyframes imagerotate {
+  0% {
+    transform: rotateX(-360deg);
+  }
+  100% {
+    transform: rotateX(360deg);
+  }
+}
+
+#top .top-login:hover{
+  background-color: #1ACC8D;
+}
+
+#top ul{
+  list-style-type: none;
+
+  border-radius: 50px;
+  padding: 10px;
+  font-weight: 600;
+  font-size: 20px;
+  transition: all 0.3s;
+}
+
+#top .top-login{
+  position: absolute;
+  list-style-type: none;
+  left: 90%;
+  background-color: white;
+  transition: all 0.3s;
+}
+
+#top #logout-btn{
+  display: none;
+}
+
+#top #register-btn{
+  display: none;
+}
+
 #hero {
   display: flex;
   justify-content: center;
   gap: 5rem;
-  height: 90vh;
   padding-bottom: 200px;
   padding-top: 200px;
 }
 
 .hero-image {
   display: flex;
-  height: 400px;
+  height: 500px;
   width: 400px;
-  margin: auto 0;
+  margin: 0 10px 0 0;
 }
 
 .hero-image{
@@ -123,8 +272,10 @@ a {
 }
 
 .hero-text {
+  display: grid;
   align-self: center;
   text-align: center;
+  margin-left: 50px;
 }
 
 .hero-text h1 {
@@ -132,9 +283,10 @@ a {
   border-bottom: 4px solid rgb(26, 204, 141);
   display: flex;
   justify-content: center;
-  margin: 0px 100px 10px 95px;
+  margin: 0px 95px 10px 95px;
   font-size: 3rem;
   text-align: center;
+  align-items: center;
 }
 
 .hero-text p{
@@ -168,34 +320,6 @@ a {
   background: #1ACC8D;
   color: white;
   border: rgb(255, 255, 255);
-}
-
-.down-arrow{
-position: absolute;
-top: calc(90% - 80px);
-left: calc(50% - 14px);
-width: 0;
-height: 30px;
-border: 2px solid;
-border-radius: 2px;
-animation: jumpInfinite 1.5s infinite;
-}
-
-.down-arrow:hover{
-  color: #1ACC8D;
-}
-
-.down-arrow:after {
-content: " ";
-position: absolute;
-top: 12px;
-left: -10px;
-width: 16px;
-height: 16px;
-border-bottom: 4px solid;
-border-right: 4px solid;
-border-radius: 4px;
-transform: rotateZ(45deg);
 }
 
 @keyframes jumpInfinite {
@@ -379,7 +503,6 @@ transform: rotateZ(45deg);
   text-align: center;
   pad: 0.7em 0;
   font-weight: 600;
-  line-height: 0;
 }
 
 
@@ -499,7 +622,13 @@ transform: rotateZ(45deg);
   width: 100%;
   margin: 0;
   padding: 50px;
-  height: 70vh;
+  display: block;
+  align-items: center;
+}
+
+#faq .faq-main{
+  position: relative;
+  top: 20%;
 }
 
 #faq h1{
@@ -1431,3 +1560,99 @@ transform: rotateZ(45deg);
   background-color: red;
 }
 
+
+/* Team Section Start */
+
+#team{
+  height: auto;
+}
+
+#team .main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 40px;
+  gap: 15px;
+}
+
+#team #teamtitle{
+  border-bottom: 4px solid #1ACC8D;
+  padding-bottom: 10px;
+  justify-content: center;
+  text-align: center;
+  padding-right: 0px;
+  margin-right: 450px;
+  margin-left: 450px;
+}
+
+
+#team .profile-card{
+  position: relative;
+  font-family: sans-serif;
+  width: 220px;
+  height: 220px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 50%;
+  box-shadow: 0 0 22px #3336;
+  transition: 0.5s;
+}
+#team .profile-card:hover{
+  border-radius: 10px;
+  height: 260px;
+  border: 3px solid black;
+}
+#team .profile-card .img{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: .6s;
+  z-index: 99;
+}
+#team .profile-card:hover .img{
+  transform: translateY(-60px);
+  
+}
+#team .img img{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  box-shadow: 0 0 22px #3336;
+  transition: .6s;
+}
+#team .profile-card:hover img{
+  border-radius: 10px;
+  height: 85%;
+  border: 2px solid black;
+}
+#team .caption{
+  text-align: center;
+  transform: translateY(-80px);
+  opacity: 0;
+  transition: .6s;
+}
+#team .profile-card:hover .caption{
+  opacity: 1;
+}
+#team .caption h3{
+  font-size: 21px;
+  font-family: sans-serif;
+}
+#team .caption p{
+  font-size: 15px;
+  color: #0c52a1;
+  font-family: sans-serif;
+  margin: 2px 0 9px 0;
+}
+#team .caption .social-links a{
+  color: #333;
+  margin-right: 15px;
+  font-size: 21px;
+  transition: .6s;
+}
+#team .social-links a:hover{
+  color: #6d6fffe8;
+
+}
+/* Team Section Start */  
